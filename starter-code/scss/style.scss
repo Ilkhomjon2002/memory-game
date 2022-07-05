@@ -1,0 +1,419 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Barlow", sans-serif;
+}
+html {
+	font-size: 16px;
+}
+:root {
+	--dark-black: #152938;
+	--white: #fcfcfc;
+	--gray: #304859;
+	--light-gray: #bcced9;
+	--orange: #fda214;
+
+	--gray95: #f2f2f2;
+	--orient: #7191a5;
+	--h-blue: #6395b8;
+	--player-box-color: #dfe7ec;
+}
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+//d-none is for hiding boxes
+.d-none {
+	display: none !important;
+}
+.setup-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	background-color: var(--dark-black);
+	animation: fadeIn 0.3s;
+	-webkit-animation: fadeIn 0.3s;
+	-moz-animation: fadeIn 0.3s;
+	-o-animation: fadeIn 0.3s;
+	-ms-animation: fadeIn 0.3s;
+
+	.setup-title {
+		font-size: 2rem;
+		color: var(--white);
+	}
+	.setup-box {
+		display: flex;
+		justify-content: space-between;
+		height: 26rem;
+		flex-direction: column;
+		background-color: var(--white);
+		padding: 3.5rem;
+		border-radius: 0.75rem;
+
+		h4 {
+			font-size: 1rem;
+			color: var(--orient);
+		}
+		button {
+			border: none;
+			color: var(--white);
+			border-radius: 1.25rem;
+			transition: 0.2s ease-in-out;
+			&:hover {
+				background-color: var(--h-blue);
+				cursor: pointer;
+			}
+		}
+		.active {
+			background-color: var(--gray) !important;
+		}
+		.idle {
+			background-color: var(--light-gray);
+		}
+		.select-theme,
+		.select-size {
+			padding: 0.5rem 0;
+			width: 9rem;
+		}
+		.select-player {
+			padding: 0.5rem 0;
+			width: 4.5rem;
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+		}
+		.start-game-btn {
+			background-color: var(--orange);
+			width: 100%;
+			font-size: 1.5rem;
+			font-weight: bold;
+			padding: 0.4rem 0;
+			&:hover {
+				background-color: var(--orange);
+				opacity: 70%;
+			}
+		}
+	}
+}
+.game-container {
+	width: 85%;
+	height: 100vh;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	animation: fadeIn 0.3s;
+	-webkit-animation: fadeIn 0.3s;
+	-moz-animation: fadeIn 0.3s;
+	-o-animation: fadeIn 0.3s;
+	-ms-animation: fadeIn 0.3s;
+	.game-header {
+		.game-title {
+			color: var(--dark-black);
+			font-size: 2.1rem;
+			font-weight: bold;
+		}
+		.game-config {
+			width: 15rem;
+			button {
+				padding: 0.6rem 1.8rem;
+				border-radius: 1.25rem;
+				border: none;
+				cursor: pointer;
+				transition: 0.2s ease-in-out;
+			}
+			.game-restart {
+				background-color: var(--orange);
+				color: var(--white);
+				font-weight: bold;
+
+				&:hover {
+					opacity: 75%;
+				}
+			}
+			.game-new-game {
+				background-color: var(--player-box-color);
+				color: var(--gray);
+				font-weight: bold;
+
+				&:hover {
+					background-color: var(--h-blue);
+					color: var(--white);
+				}
+			}
+		}
+	}
+	.game-container-6x6.round-boxes {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(6, 1fr);
+		gap: 0.6rem;
+
+		.round {
+			font-size: 0rem;
+			font-weight: bold;
+
+			background-color: var(--gray);
+			border: none;
+			color: var(--gray);
+			width: 3.8rem;
+			height: 3.8rem;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: 0.2s ease-in-out;
+			&:hover {
+				background-color: var(--h-blue);
+				color: var(--h-blue);
+			}
+		}
+		.found {
+			background-color: var(--light-gray);
+			color: var(--white);
+			font-size: 1.8rem;
+			&:hover {
+				background-color: var(--light-gray);
+				color: var(--white);
+			}
+		}
+		.current {
+			background-color: var(--orange);
+			color: var(--white);
+			font-size: 1.8rem;
+			&:hover {
+				background-color: var(--orange);
+				color: var(--white);
+			}
+		}
+	}
+	.game-container-4x4.round-boxes {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+		gap: 0.6rem;
+
+		.round {
+			font-size: 0rem;
+			font-weight: bold;
+			background-color: var(--gray);
+			border: none;
+			color: var(--gray);
+			width: 5.8rem;
+			height: 5.8rem;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: 0.2s ease-in-out;
+			&:hover {
+				background-color: var(--h-blue);
+				color: var(--h-blue);
+			}
+		}
+		.found {
+			background-color: var(--light-gray);
+			color: var(--white);
+			font-size: 1.8rem;
+			&:hover {
+				background-color: var(--light-gray);
+				color: var(--white);
+			}
+		}
+		.current {
+			background-color: var(--orange);
+			color: var(--white);
+			font-size: 1.8rem;
+			&:hover {
+				background-color: var(--orange);
+				color: var(--white);
+			}
+		}
+	}
+	.players-box {
+		.single-player-mode {
+			width: 26.25rem;
+
+			.time-box,
+			.moves-box {
+				background-color: var(--player-box-color);
+				border-radius: 0.5rem;
+				padding: 0.9rem;
+				width: 12.5rem;
+				h1 {
+					font-size: 0.8rem;
+					color: var(--orient);
+				}
+				div {
+					color: var(--gray);
+					font-size: 1.75rem;
+					font-weight: bold;
+				}
+			}
+		}
+		.multi-player-mode {
+			.player-box {
+				background-color: var(--player-box-color);
+				border-radius: 0.5rem;
+				padding: 0.9rem;
+				width: 12.5rem;
+				margin-right: 20px;
+				h1 {
+					font-size: 0.8rem;
+					color: var(--orient);
+				}
+				div {
+					color: var(--gray);
+					font-size: 1.75rem;
+					font-weight: bold;
+				}
+			}
+			.current-player {
+				position: relative;
+				background-color: var(--orange);
+				h1 {
+					color: var(--white);
+				}
+				div {
+					color: var(--white);
+				}
+				&::before {
+					position: absolute;
+					content: "";
+					width: 0;
+					height: 0;
+					border: 1.875rem solid transparent;
+					border-top: 0;
+					top: -0.94rem;
+					left: 50%;
+					transform: translateX(-50%);
+					border-bottom: 1.875rem solid var(--orange);
+				}
+				&::after {
+					position: absolute;
+					content: "Current Turn";
+					bottom: -1.25rem;
+					left: 50%;
+					transform: translateX(-50%);
+					font-size: 0.625rem;
+					letter-spacing: 0.125rem;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+}
+
+.overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(128, 128, 128, 0.552);
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.win-lose-window {
+		border-radius: 0.75rem;
+		background-color: var(--white);
+		padding: 3.2rem 3.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: space-between;
+		flex-direction: column;
+
+		.title-box {
+			text-align: center;
+			padding-bottom: 2.5rem;
+
+			.title {
+				color: var(--dark-black);
+				font-size: 2.5rem;
+				padding-bottom: 1rem;
+			}
+			.subtitle {
+				color: var(--orient);
+				font-size: 1rem;
+				font-weight: 500;
+			}
+		}
+		.player-table-box {
+			background-color: var(--player-box-color);
+			padding: 1rem 2rem;
+			width: 30rem;
+			border-radius: 0.75rem;
+			margin-bottom: 1rem;
+			.player-name {
+				font-size: 1.1rem;
+				font-weight: 600;
+				color: var(--orient);
+			}
+			.player-score {
+				font-size: 2rem;
+				font-weight: 700;
+				color: var(--gray);
+			}
+			&.winner {
+				background-color: var(--dark-black);
+				color: var(--white);
+				.player-name {
+					color: var(--white);
+				}
+				.player-score {
+					color: var(--white);
+				}
+			}
+		}
+	}
+	.win-lose-reload-box {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		button {
+			padding: 0.7rem 0;
+			border-radius: 1.25rem;
+			border: none;
+			cursor: pointer;
+			transition: 0.2s ease-in-out;
+		}
+		.game-restart {
+			width: 48%;
+			background-color: var(--orange);
+			color: var(--white);
+			font-weight: bold;
+
+			&:hover {
+				opacity: 75%;
+			}
+		}
+		.game-new-game {
+			width: 48%;
+			background-color: var(--player-box-color);
+			color: var(--gray);
+			font-weight: bold;
+
+			&:hover {
+				background-color: var(--h-blue);
+				color: var(--white);
+			}
+		}
+	}
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

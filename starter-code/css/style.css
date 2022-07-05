@@ -1,0 +1,334 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Barlow", sans-serif; }
+
+html {
+  font-size: 16px; }
+
+:root {
+  --dark-black: #152938;
+  --white: #fcfcfc;
+  --gray: #304859;
+  --light-gray: #bcced9;
+  --orange: #fda214;
+  --gray95: #f2f2f2;
+  --orient: #7191a5;
+  --h-blue: #6395b8;
+  --player-box-color: #dfe7ec; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; }
+
+.d-none {
+  display: none !important; }
+
+.setup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  background-color: var(--dark-black);
+  animation: fadeIn 0.3s;
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  -o-animation: fadeIn 0.3s;
+  -ms-animation: fadeIn 0.3s; }
+  .setup-container .setup-title {
+    font-size: 2rem;
+    color: var(--white); }
+  .setup-container .setup-box {
+    display: flex;
+    justify-content: space-between;
+    height: 26rem;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 3.5rem;
+    border-radius: 0.75rem; }
+    .setup-container .setup-box h4 {
+      font-size: 1rem;
+      color: var(--orient); }
+    .setup-container .setup-box button {
+      border: none;
+      color: var(--white);
+      border-radius: 1.25rem;
+      transition: 0.2s ease-in-out; }
+      .setup-container .setup-box button:hover {
+        background-color: var(--h-blue);
+        cursor: pointer; }
+    .setup-container .setup-box .active {
+      background-color: var(--gray) !important; }
+    .setup-container .setup-box .idle {
+      background-color: var(--light-gray); }
+    .setup-container .setup-box .select-theme,
+    .setup-container .setup-box .select-size {
+      padding: 0.5rem 0;
+      width: 9rem; }
+    .setup-container .setup-box .select-player {
+      padding: 0.5rem 0;
+      width: 4.5rem; }
+      .setup-container .setup-box .select-player:not(:last-child) {
+        margin-right: 10px; }
+    .setup-container .setup-box .start-game-btn {
+      background-color: var(--orange);
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 0.4rem 0; }
+      .setup-container .setup-box .start-game-btn:hover {
+        background-color: var(--orange);
+        opacity: 70%; }
+
+.game-container {
+  width: 85%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  animation: fadeIn 0.3s;
+  -webkit-animation: fadeIn 0.3s;
+  -moz-animation: fadeIn 0.3s;
+  -o-animation: fadeIn 0.3s;
+  -ms-animation: fadeIn 0.3s; }
+  .game-container .game-header .game-title {
+    color: var(--dark-black);
+    font-size: 2.1rem;
+    font-weight: bold; }
+  .game-container .game-header .game-config {
+    width: 15rem; }
+    .game-container .game-header .game-config button {
+      padding: 0.6rem 1.8rem;
+      border-radius: 1.25rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease-in-out; }
+    .game-container .game-header .game-config .game-restart {
+      background-color: var(--orange);
+      color: var(--white);
+      font-weight: bold; }
+      .game-container .game-header .game-config .game-restart:hover {
+        opacity: 75%; }
+    .game-container .game-header .game-config .game-new-game {
+      background-color: var(--player-box-color);
+      color: var(--gray);
+      font-weight: bold; }
+      .game-container .game-header .game-config .game-new-game:hover {
+        background-color: var(--h-blue);
+        color: var(--white); }
+  .game-container .game-container-6x6.round-boxes {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0.6rem; }
+    .game-container .game-container-6x6.round-boxes .round {
+      font-size: 0rem;
+      font-weight: bold;
+      background-color: var(--gray);
+      border: none;
+      color: var(--gray);
+      width: 3.8rem;
+      height: 3.8rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s ease-in-out; }
+      .game-container .game-container-6x6.round-boxes .round:hover {
+        background-color: var(--h-blue);
+        color: var(--h-blue); }
+    .game-container .game-container-6x6.round-boxes .found {
+      background-color: var(--light-gray);
+      color: var(--white);
+      font-size: 1.8rem; }
+      .game-container .game-container-6x6.round-boxes .found:hover {
+        background-color: var(--light-gray);
+        color: var(--white); }
+    .game-container .game-container-6x6.round-boxes .current {
+      background-color: var(--orange);
+      color: var(--white);
+      font-size: 1.8rem; }
+      .game-container .game-container-6x6.round-boxes .current:hover {
+        background-color: var(--orange);
+        color: var(--white); }
+  .game-container .game-container-4x4.round-boxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0.6rem; }
+    .game-container .game-container-4x4.round-boxes .round {
+      font-size: 0rem;
+      font-weight: bold;
+      background-color: var(--gray);
+      border: none;
+      color: var(--gray);
+      width: 5.8rem;
+      height: 5.8rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s ease-in-out; }
+      .game-container .game-container-4x4.round-boxes .round:hover {
+        background-color: var(--h-blue);
+        color: var(--h-blue); }
+    .game-container .game-container-4x4.round-boxes .found {
+      background-color: var(--light-gray);
+      color: var(--white);
+      font-size: 1.8rem; }
+      .game-container .game-container-4x4.round-boxes .found:hover {
+        background-color: var(--light-gray);
+        color: var(--white); }
+    .game-container .game-container-4x4.round-boxes .current {
+      background-color: var(--orange);
+      color: var(--white);
+      font-size: 1.8rem; }
+      .game-container .game-container-4x4.round-boxes .current:hover {
+        background-color: var(--orange);
+        color: var(--white); }
+  .game-container .players-box .single-player-mode {
+    width: 26.25rem; }
+    .game-container .players-box .single-player-mode .time-box,
+    .game-container .players-box .single-player-mode .moves-box {
+      background-color: var(--player-box-color);
+      border-radius: 0.5rem;
+      padding: 0.9rem;
+      width: 12.5rem; }
+      .game-container .players-box .single-player-mode .time-box h1,
+      .game-container .players-box .single-player-mode .moves-box h1 {
+        font-size: 0.8rem;
+        color: var(--orient); }
+      .game-container .players-box .single-player-mode .time-box div,
+      .game-container .players-box .single-player-mode .moves-box div {
+        color: var(--gray);
+        font-size: 1.75rem;
+        font-weight: bold; }
+  .game-container .players-box .multi-player-mode .player-box {
+    background-color: var(--player-box-color);
+    border-radius: 0.5rem;
+    padding: 0.9rem;
+    width: 12.5rem;
+    margin-right: 20px; }
+    .game-container .players-box .multi-player-mode .player-box h1 {
+      font-size: 0.8rem;
+      color: var(--orient); }
+    .game-container .players-box .multi-player-mode .player-box div {
+      color: var(--gray);
+      font-size: 1.75rem;
+      font-weight: bold; }
+  .game-container .players-box .multi-player-mode .current-player {
+    position: relative;
+    background-color: var(--orange); }
+    .game-container .players-box .multi-player-mode .current-player h1 {
+      color: var(--white); }
+    .game-container .players-box .multi-player-mode .current-player div {
+      color: var(--white); }
+    .game-container .players-box .multi-player-mode .current-player::before {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border: 1.875rem solid transparent;
+      border-top: 0;
+      top: -0.94rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom: 1.875rem solid var(--orange); }
+    .game-container .players-box .multi-player-mode .current-player::after {
+      position: absolute;
+      content: "Current Turn";
+      bottom: -1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.625rem;
+      letter-spacing: 0.125rem;
+      font-weight: bold;
+      text-transform: uppercase; }
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.552);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .overlay .win-lose-window {
+    border-radius: 0.75rem;
+    background-color: var(--white);
+    padding: 3.2rem 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    flex-direction: column; }
+    .overlay .win-lose-window .title-box {
+      text-align: center;
+      padding-bottom: 2.5rem; }
+      .overlay .win-lose-window .title-box .title {
+        color: var(--dark-black);
+        font-size: 2.5rem;
+        padding-bottom: 1rem; }
+      .overlay .win-lose-window .title-box .subtitle {
+        color: var(--orient);
+        font-size: 1rem;
+        font-weight: 500; }
+    .overlay .win-lose-window .player-table-box {
+      background-color: var(--player-box-color);
+      padding: 1rem 2rem;
+      width: 30rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1rem; }
+      .overlay .win-lose-window .player-table-box .player-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--orient); }
+      .overlay .win-lose-window .player-table-box .player-score {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--gray); }
+      .overlay .win-lose-window .player-table-box.winner {
+        background-color: var(--dark-black);
+        color: var(--white); }
+        .overlay .win-lose-window .player-table-box.winner .player-name {
+          color: var(--white); }
+        .overlay .win-lose-window .player-table-box.winner .player-score {
+          color: var(--white); }
+  .overlay .win-lose-reload-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .overlay .win-lose-reload-box button {
+      padding: 0.7rem 0;
+      border-radius: 1.25rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s ease-in-out; }
+    .overlay .win-lose-reload-box .game-restart {
+      width: 48%;
+      background-color: var(--orange);
+      color: var(--white);
+      font-weight: bold; }
+      .overlay .win-lose-reload-box .game-restart:hover {
+        opacity: 75%; }
+    .overlay .win-lose-reload-box .game-new-game {
+      width: 48%;
+      background-color: var(--player-box-color);
+      color: var(--gray);
+      font-weight: bold; }
+      .overlay .win-lose-reload-box .game-new-game:hover {
+        background-color: var(--h-blue);
+        color: var(--white); }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
