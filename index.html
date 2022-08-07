@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fjalla+One&family=MuseoModerno:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,700;1,400;1,700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="./assets/linea_weather_1.0/_ICONFONT/styles.css"
+			rel="stylesheet"
+		/>
+		<title>Memory game</title>
+		<script
+			src="https://kit.fontawesome.com/cbb1a73c49.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<!--Setup -->
+		<div class="setup-container">
+			<div class="setup-title"><h1>memory</h1></div>
+			<div class="setup-box">
+				<h4>Select Theme</h4>
+				<div class="select-theme-container row">
+					<button
+						class="select-theme select-theme--numbers number-js idle"
+						value="num"
+					>
+						Numbers
+					</button>
+					<button
+						value="icon"
+						class="select-theme select-theme--icons icon-js idle"
+					>
+						Icons
+					</button>
+				</div>
+				<h4>Numbers of Players</h4>
+				<div class="select-players row">
+					<button class="select-player idle" value="1">1</button>
+					<button class="select-player idle" value="2">2</button>
+					<button class="select-player idle" value="3">3</button>
+					<button class="select-player idle" value="4">4</button>
+				</div>
+				<h4>Grid Size</h4>
+				<div class="select-sizes row">
+					<button class="select-size idle" value="4">4x4</button>
+					<button class="select-size idle" value="6">6x6</button>
+				</div>
+				<button class="start-game-btn start-js">Start Game</button>
+			</div>
+		</div>
+
+		<!--Main game part-->
+		<div class="game-container d-none">
+			<div class="game-header row">
+				<div class="game-title">memory</div>
+				<div class="game-config row">
+					<button class="game-restart restart-js">Restart</button>
+					<button class="game-new-game newGame-js">New Game</button>
+				</div>
+			</div>
+			<!-- 6x6 game-->
+			<div class="game-container-6x6 round-boxes d-none">
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round current">8</button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round current">8</button>
+				<button class="round"></button>
+				<button class="round found">6</button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round found">1</button>
+				<button class="round found">1</button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round found">6</button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+				<button class="round"></button>
+			</div>
+			<!--4x4 game-->
+			<div class="game-container-4x4 round-boxes">
+				<button class="round">1</button>
+				<button class="round">2</button>
+				<button class="round">3</button>
+				<button class="round current">8</button>
+				<button class="round">4</button>
+				<button class="round">5</button>
+				<button class="round">6</button>
+				<button class="round current">8</button>
+				<button class="round">7</button>
+				<button class="round found">6</button>
+				<button class="round">8</button>
+				<button class="round">9</button>
+				<button class="round found">10</button>
+				<button class="round found">11</button>
+				<button class="round">13</button>
+				<button class="round">15</button>
+			</div>
+			<div class="players-box">
+				<!--Signle player mode-->
+				<div class="single-player-mode d-none row">
+					<div class="time-box row">
+						<h1 class="time-title">Time</h1>
+						<div class="time time-js">1:53</div>
+					</div>
+					<div class="moves-box row">
+						<h1 class="moves-title">Moves</h1>
+						<div class="moves moves-js">13</div>
+					</div>
+				</div>
+				<!--Multiplayer mode-->
+				<div class="multi-player-mode row">
+					<div class="player-box current-player row">
+						<h1 class="player-1">Player-1</h1>
+						<div class="score score-js">2</div>
+					</div>
+					<div class="player-box row">
+						<h1 class="player-2">Player-2</h1>
+						<div class="score score-js">4</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="overlay d-none">
+			<div class="win-lose-window">
+				<div class="title-box">
+					<h1 class="title wl-title-js">Player 3 Wins!</h1>
+					<h3 class="subtitle">Game over! Here are results...</h3>
+				</div>
+				<div class="players-table">
+					<div class="player-table-box winner row">
+						<h3 class="player-name">Player 3 (Winner)</h3>
+						<h2 class="player-score">8 Pairs</h2>
+					</div>
+					<div class="player-table-box row">
+						<h3 class="player-name">Player 2</h3>
+						<h2 class="player-score">4 Pairs</h2>
+					</div>
+					<div class="player-table-box row">
+						<h3 class="player-name">Player 1</h3>
+						<h2 class="player-score">3 Pairs</h2>
+					</div>
+					<div class="player-table-box row">
+						<h3 class="player-name">Player 4</h3>
+						<h2 class="player-score">1 Pairs</h2>
+					</div>
+				</div>
+				<div class="win-lose-reload-box">
+					<button class="game-restart restart-js">Restart</button>
+					<button class="game-new-game newGame-js">Setup New Game</button>
+				</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
